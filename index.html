@@ -38,51 +38,36 @@
   </div>
 </header>
 <main id="main">
-<section class="hero">
-  <div class="wrap">
-    <div class="bento">
-     <div class="col col-l">
-      <div class="tile t-title">
+<section class="hero-scroll" aria-label="Introductie">
+  <div class="hero-pin">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
         <p class="eyebrow">Kleurspecialist · Eindhoven</p>
-        <h1>Zacht, stralend <em>blond</em> in Eindhoven</h1>
+        <h1>Zacht, stralend <em>blond.</em></h1>
+        <p class="hero-lead">Persoonlijk advies en vakwerk in blond, balayage, AirTouch en kleurcorrecties. Voor vrouwen in Eindhoven en omgeving.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="/#contact"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.21 8.21 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.76-1.84-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.21.88 2.39 1 2.55.12.17 1.74 2.65 4.21 3.72.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></svg><span>Afspraak via WhatsApp</span></a>
-          <a class="btn btn-ghost" href="/portfolio">Bekijk voor &amp; na</a>
+          <a class="link-arrow" href="/portfolio">Bekijk voor &amp; na →</a>
         </div>
+        <dl class="hero-proof">
+          <div><dt>Sinds 2018</dt><dd>gediplomeerd kapster &amp; colorist</dd></div>
+          <div><dt>Blond</dt><dd>mijn specialisatie</dd></div>
+          <div><dt>Eerlijk</dt><dd>prijs altijd vooraf</dd></div>
+        </dl>
       </div>
-      <div class="tile t-media">
-        <img src="/images/werk/totaal-blond-na-600.jpg" alt="Licht, stralend blond na een totaal blond-behandeling" width="600" height="750" loading="lazy">
-        <span class="tag">Totaal blond</span>
-      </div>
-      <div class="tile t-intro">
-        <p>Ik ben Kateryna. Ik luister naar je wensen, kijk eerlijk naar de conditie van je haar en maak een kleur die natuurlijk oogt en lang mooi blijft.</p>
-        <a class="link-arrow" href="/prijzen">Bekijk alle prijzen →</a>
-      </div>
-     </div>
-      <div class="tile t-image">
-        <img src="/images/werk/blond-correctie-na.jpg" alt="Egaal, koel blond na een blondcorrectie bij Haar Kleur Studio" width="960" height="1200" fetchpriority="high">
-        <span class="tag">Blondcorrectie</span>
-      </div>
-     <div class="col col-r">
-      <div class="tile t-card">
-        <span class="big">2018</span>
-        <p>Gediplomeerd kapster en colorist, en sindsdien elk jaar verder bijgeschoold.</p>
-      </div>
-      <div class="tile t-text">
-        <p class="eyebrow" style="color:var(--accent-dark)">Specialisaties</p>
-        <ul>
-          <li>Balayage <span>€ 240–320</span></li>
-          <li>AirTouch <span>€ 330–450</span></li>
-          <li>Totaal blond <span>€ 160–190</span></li>
-          <li>Kleurcorrectie <span>€ 280–400</span></li>
-        </ul>
-      </div>
-      <a class="tile t-cta" href="/#contact">
-        <span class="q">Twijfel je wat bij je past? Stuur een foto voor persoonlijk advies.</span>
-        <span class="go">WhatsApp <span aria-hidden="true">→</span></span>
-      </a>
-     </div>
+      <figure class="hero-visual">
+        <div class="ba ba-hero" data-hero>
+          <img class="ba-after" src="/images/werk/blond-correctie-na.jpg" alt="Na: egaal, koel blond na een blondcorrectie bij Haar Kleur Studio" width="960" height="1200" fetchpriority="high">
+          <img class="ba-before" src="/images/werk/blond-correctie-voor.jpg" alt="Voor: ongelijk blond met strepen en donkere uitgroei" width="960" height="1200">
+          <span class="ba-line"></span>
+          <span class="lbl lbl-voor">Voor</span><span class="lbl lbl-na">Na</span>
+          <input type="range" min="0" max="100" value="100" aria-label="Vergelijk voor en na van deze blondcorrectie">
+          <span class="ba-knob"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 3 12l6 6M15 6l6 6-6 6"/></svg></span>
+        </div>
+        <figcaption class="hero-cap"><span>Echt resultaat</span><span>Blondcorrectie</span></figcaption>
+      </figure>
     </div>
+    <p class="hero-hint" aria-hidden="true"><span></span>Scroll en zie het resultaat</p>
   </div>
 </section>
 

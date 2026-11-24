@@ -248,51 +248,36 @@ def page_home():
     return head("Haar Kleur Studio | Blond, balayage &amp; AirTouch in Eindhoven",
                 "Kapster en colorist in Eindhoven, gespecialiseerd in blond, balayage, AirTouch, highlights, grijsblending en kleurcorrecties. Persoonlijk advies en afspraak via WhatsApp.",
                 "/") + header("home") + f'''
-<section class="hero">
-  <div class="wrap">
-    <div class="bento">
-     <div class="col col-l">
-      <div class="tile t-title">
+<section class="hero-scroll" aria-label="Introductie">
+  <div class="hero-pin">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
         <p class="eyebrow">Kleurspecialist · {CONFIG["city"]}</p>
-        <h1>Zacht, stralend <em>blond</em> in {CONFIG["city"]}</h1>
+        <h1>Zacht, stralend <em>blond.</em></h1>
+        <p class="hero-lead">Persoonlijk advies en vakwerk in blond, balayage, AirTouch en kleurcorrecties. Voor vrouwen in {CONFIG["city"]} en omgeving.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="{wa_url()}">{ICON_WA}<span>Afspraak via WhatsApp</span></a>
-          <a class="btn btn-ghost" href="/portfolio">Bekijk voor &amp; na</a>
+          <a class="link-arrow" href="/portfolio">Bekijk voor &amp; na →</a>
         </div>
+        <dl class="hero-proof">
+          <div><dt>Sinds 2018</dt><dd>gediplomeerd kapster &amp; colorist</dd></div>
+          <div><dt>Blond</dt><dd>mijn specialisatie</dd></div>
+          <div><dt>Eerlijk</dt><dd>prijs altijd vooraf</dd></div>
+        </dl>
       </div>
-      <div class="tile t-media">
-        <img src="/images/werk/totaal-blond-na-600.jpg" alt="Licht, stralend blond na een totaal blond-behandeling" width="600" height="750" loading="lazy">
-        <span class="tag">Totaal blond</span>
-      </div>
-      <div class="tile t-intro">
-        <p>Ik ben Kateryna. Ik luister naar je wensen, kijk eerlijk naar de conditie van je haar en maak een kleur die natuurlijk oogt en lang mooi blijft.</p>
-        <a class="link-arrow" href="/prijzen">Bekijk alle prijzen →</a>
-      </div>
-     </div>
-      <div class="tile t-image">
-        <img src="/images/werk/blond-correctie-na.jpg" alt="Egaal, koel blond na een blondcorrectie bij Haar Kleur Studio" width="960" height="1200" fetchpriority="high">
-        <span class="tag">Blondcorrectie</span>
-      </div>
-     <div class="col col-r">
-      <div class="tile t-card">
-        <span class="big">2018</span>
-        <p>Gediplomeerd kapster en colorist, en sindsdien elk jaar verder bijgeschoold.</p>
-      </div>
-      <div class="tile t-text">
-        <p class="eyebrow" style="color:var(--accent-dark)">Specialisaties</p>
-        <ul>
-          <li>Balayage <span>€ 240–320</span></li>
-          <li>AirTouch <span>€ 330–450</span></li>
-          <li>Totaal blond <span>€ 160–190</span></li>
-          <li>Kleurcorrectie <span>€ 280–400</span></li>
-        </ul>
-      </div>
-      <a class="tile t-cta" href="{wa_url("Hoi Kateryna, ik wil graag advies over mijn haar. Hierbij een foto.")}">
-        <span class="q">Twijfel je wat bij je past? Stuur een foto voor persoonlijk advies.</span>
-        <span class="go">WhatsApp <span aria-hidden="true">→</span></span>
-      </a>
-     </div>
+      <figure class="hero-visual">
+        <div class="ba ba-hero" data-hero>
+          <img class="ba-after" src="/images/werk/blond-correctie-na.jpg" alt="Na: egaal, koel blond na een blondcorrectie bij Haar Kleur Studio" width="960" height="1200" fetchpriority="high">
+          <img class="ba-before" src="/images/werk/blond-correctie-voor.jpg" alt="Voor: ongelijk blond met strepen en donkere uitgroei" width="960" height="1200">
+          <span class="ba-line"></span>
+          <span class="lbl lbl-voor">Voor</span><span class="lbl lbl-na">Na</span>
+          <input type="range" min="0" max="100" value="100" aria-label="Vergelijk voor en na van deze blondcorrectie">
+          <span class="ba-knob">{ICON_ARROWS}</span>
+        </div>
+        <figcaption class="hero-cap"><span>Echt resultaat</span><span>Blondcorrectie</span></figcaption>
+      </figure>
     </div>
+    <p class="hero-hint" aria-hidden="true"><span></span>Scroll en zie het resultaat</p>
   </div>
 </section>
 

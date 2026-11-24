@@ -27,7 +27,7 @@
     var input = el.querySelector('input');
     if (!input) return;
     var item = { el: el, input: input, manual: false };
-    var set = function (v) { input.value = v; el.style.setProperty('--pos', v + '%'); el.classList.toggle('ba-edge', v <= 1 || v >= 99); };
+    var set = function (v) { input.value = v; el.style.setProperty('--pos', v + '%'); el.classList.toggle('ba-edge', v <= 1 || v >= 99); el.setAttribute('data-side', v > 50 ? 'voor' : 'na'); };
     item.set = set;
     input.addEventListener('input', function () { item.manual = true; el.classList.remove('ba-edge'); el.style.setProperty('--pos', input.value + '%'); });
     input.addEventListener('pointerdown', function () { item.manual = true; });
@@ -41,6 +41,18 @@
       var vh = window.innerHeight;
       bas.forEach(function (it) {
         if (it.manual || it.el.offsetParent === null) return;
+        var sec = it.el.closest('.hero-scroll');
+        var pin = sec && sec.querySelector('.hero-pin');
+        if (pin && getComputedStyle(pin).position === 'sticky') {
+          var sr = sec.getBoundingClientRect();
+          var span = sec.offsetHeight - pin.offsetHeight;
+          var q = span > 0 ? (-sr.top) / span : 0;
+          q = Math.max(0, Math.min(1, (q - 0.06) / 0.8));
+          q = q * q * (3 - 2 * q);
+          sec.classList.toggle('done', q > 0.9);
+          it.set(Math.round((1 - q) * 1000) / 10);
+          return;
+        }
         var r = it.el.getBoundingClientRect();
         if (r.bottom < 0 || r.top > vh) return;
         // 0 = net in beeld (voor), 1 = in het bovenste deel van het scherm (na)
