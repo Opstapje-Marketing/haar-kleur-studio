@@ -19,13 +19,42 @@
     });
   }
 
-  // Voor/na-schuifjes
+  // Voor/na: tijdens het scrollen schuift het eindresultaat over de voor-foto.
+  // Zelf slepen kan altijd; daarna neemt de bezoeker het over.
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bas = [];
   document.querySelectorAll('.ba').forEach(function (el) {
     var input = el.querySelector('input');
     if (!input) return;
-    var set = function () { el.style.setProperty('--pos', input.value + '%'); };
-    input.addEventListener('input', set); set();
+    var item = { el: el, input: input, manual: false };
+    var set = function (v) { input.value = v; el.style.setProperty('--pos', v + '%'); el.classList.toggle('ba-edge', v <= 1 || v >= 99); };
+    item.set = set;
+    input.addEventListener('input', function () { item.manual = true; el.classList.remove('ba-edge'); el.style.setProperty('--pos', input.value + '%'); });
+    input.addEventListener('pointerdown', function () { item.manual = true; });
+    set(reduce ? 50 : 100);
+    bas.push(item);
   });
+  if (!reduce && bas.length) {
+    var ticking = false;
+    var update = function () {
+      ticking = false;
+      var vh = window.innerHeight;
+      bas.forEach(function (it) {
+        if (it.manual || it.el.offsetParent === null) return;
+        var r = it.el.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) return;
+        // 0 = net in beeld (voor), 1 = in het bovenste deel van het scherm (na)
+        var p = (vh * 0.9 - r.top) / (vh * 0.55);
+        p = Math.max(0, Math.min(1, p));
+        p = p * p * (3 - 2 * p); // zachte in- en uitloop
+        it.set(Math.round((1 - p) * 1000) / 10);
+      });
+    };
+    var req = function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    window.addEventListener('scroll', req, { passive: true });
+    window.addEventListener('resize', req);
+    update();
+  }
 
   // Portfolio-filter
   var filterBtns = document.querySelectorAll('.filters button');
