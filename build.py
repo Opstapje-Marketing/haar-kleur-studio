@@ -225,6 +225,70 @@ def footer():
 '''
 
 # ---------------------------------------------------------------- pagina's
+
+import os
+HERO_VARIANT = os.environ.get("HERO", "b")   # "a" = woord met haartextuur, "b" = fotokaart met tekst
+
+def HERO_A():
+    return f'''<section class="hero-tex" aria-label="Introductie">
+  <div class="wrap">
+    <div class="ht-top">
+      <p class="eyebrow">Haar Kleur Studio · {CONFIG["city"]}</p>
+      <p class="ht-since">Kapster &amp; colorist sinds 2018</p>
+    </div>
+    <h1 class="ht-title"><span class="ht-word">Blond</span><span class="ht-sub">met zorg gemaakt, in <em>{CONFIG["city"]}</em></span></h1>
+    <ul class="ht-palette" aria-label="Tinten in de letters">
+      <li><span style="background:#E8DCC6"></span>Platinum &amp; licht blond</li><li><span style="background:#C99A5E"></span>Goudblond</li><li><span style="background:#8E6B4E"></span>Beige &amp; brunette</li>
+    </ul>
+    <div class="ht-bottom">
+      <p class="ht-lead">Persoonlijk advies en vakwerk in blond, balayage, AirTouch en kleurcorrecties. De letters hierboven zijn gevuld met echt haar uit de studio.</p>
+      <div class="ht-cta">
+        <a class="btn btn-light" href="{wa_url()}">{ICON_WA}<span>Afspraak via WhatsApp</span></a>
+        <a class="link-arrow" href="/portfolio">Bekijk voor &amp; na →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+'''
+
+def HERO_B():
+    return f'''<section class="hero-b" aria-label="Introductie">
+  <div class="wrap hb-grid">
+    <div class="hb-main">
+      <img src="/images/werk/blond-correctie-na.jpg" alt="Egaal, koel blond na een blondcorrectie bij Haar Kleur Studio" width="960" height="1200" fetchpriority="high">
+      <div class="hb-overlay">
+        <p class="hb-kicker">Kleurspecialist in {CONFIG["city"]}</p>
+        <h1>Blond, met <em>persoonlijke</em> aandacht.</h1>
+        <div class="hb-cta">
+          <a class="btn btn-light" href="{wa_url()}">{ICON_WA}<span>Afspraak via WhatsApp</span></a>
+          <a class="hb-link" href="/portfolio">Bekijk voor &amp; na →</a>
+        </div>
+      </div>
+      <span class="hb-tag">Echt resultaat · Blondcorrectie</span>
+    </div>
+    <div class="hb-side">
+      <a class="hb-meet" href="/#over-mij">
+        <img src="/images/kateryna.jpg" alt="Kateryna, kapster en colorist" width="980" height="1225">
+        <span class="hb-meet-txt"><span class="hb-small">Maak kennis</span><span class="hb-name">Kateryna</span><span class="hb-role">Kapster &amp; colorist sinds 2018</span></span>
+        <span class="hb-arrow" aria-hidden="true">→</span>
+      </a>
+      <div class="hb-menu">
+        <p class="eyebrow">Specialisaties</p>
+        <ul>
+          <li><span>Balayage</span><span>€ 240–320</span></li>
+          <li><span>AirTouch</span><span>€ 330–450</span></li>
+          <li><span>Totaal blond</span><span>€ 160–190</span></li>
+          <li><span>Kleurcorrectie</span><span>€ 280–400</span></li>
+        </ul>
+        <a class="link-arrow" href="/prijzen">Alle prijzen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+'''
+
 def page_home():
     specs = [
         ("Blond", "Van zacht honingblond tot ijzig platinum, met totaal blond of special blond zonder blondeerpoeder.", "vanaf <strong>€ 130</strong>"),
@@ -247,27 +311,7 @@ def page_home():
     return head("Haar Kleur Studio | Blond, balayage &amp; AirTouch in Eindhoven",
                 "Kapster en colorist in Eindhoven, gespecialiseerd in blond, balayage, AirTouch, highlights, grijsblending en kleurcorrecties. Persoonlijk advies en afspraak via WhatsApp.",
                 "/") + header("home") + f'''
-<section class="hero-tex" aria-label="Introductie">
-  <div class="wrap">
-    <div class="ht-top">
-      <p class="eyebrow">Haar Kleur Studio · {CONFIG["city"]}</p>
-      <p class="ht-since">Kapster &amp; colorist sinds 2018</p>
-    </div>
-    <h1 class="ht-title"><span class="ht-word">Blond</span><span class="ht-sub">met zorg gemaakt, in <em>{CONFIG["city"]}</em></span></h1>
-    <ul class="ht-palette" aria-label="Tinten in de letters">
-      <li><span style="background:#E8DCC6"></span>Platinum &amp; licht blond</li><li><span style="background:#C99A5E"></span>Goudblond</li><li><span style="background:#8E6B4E"></span>Beige &amp; brunette</li>
-    </ul>
-    <div class="ht-bottom">
-      <p class="ht-lead">Persoonlijk advies en vakwerk in blond, balayage, AirTouch en kleurcorrecties. De letters hierboven zijn gevuld met echt haar uit de studio.</p>
-      <div class="ht-cta">
-        <a class="btn btn-light" href="{wa_url()}">{ICON_WA}<span>Afspraak via WhatsApp</span></a>
-        <a class="link-arrow" href="/portfolio">Bekijk voor &amp; na →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec-blush" id="specialisaties">
+''' + (HERO_A() if HERO_VARIANT == 'a' else HERO_B()) + f'''<section class="sec sec-blush" id="specialisaties">
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">Behandelingen</p><h2 class="h2" style="margin-top:12px">Waar ik in <em>gespecialiseerd</em> ben</h2></div>
