@@ -267,18 +267,12 @@ def page_home():
         </dl>
       </div>
       <figure class="hero-visual">
-        <div class="ba ba-hero" data-hero>
-          <img class="ba-after" src="/images/werk/blond-correctie-na.jpg" alt="Na: egaal, koel blond na een blondcorrectie bij Haar Kleur Studio" width="960" height="1200" fetchpriority="high">
-          <img class="ba-before" src="/images/werk/blond-correctie-voor.jpg" alt="Voor: ongelijk blond met strepen en donkere uitgroei" width="960" height="1200">
-          <span class="ba-line"></span>
-          <span class="lbl lbl-voor">Voor</span><span class="lbl lbl-na">Na</span>
-          <input type="range" min="0" max="100" value="100" aria-label="Vergelijk voor en na van deze blondcorrectie">
-          <span class="ba-knob">{ICON_ARROWS}</span>
+        <div class="hero-arch">
+          <img src="/images/werk/blond-correctie-na.jpg" alt="Egaal, koel blond na een blondcorrectie bij Haar Kleur Studio" width="960" height="1200" fetchpriority="high">
         </div>
-        <figcaption class="hero-cap"><span>Echt resultaat</span><span>Blondcorrectie</span></figcaption>
+        <figcaption class="hero-cap"><span>Echt resultaat uit de studio</span><span>Blondcorrectie</span></figcaption>
       </figure>
     </div>
-    <p class="hero-hint" aria-hidden="true"><span></span>Scroll en zie het resultaat</p>
   </div>
 </section>
 
