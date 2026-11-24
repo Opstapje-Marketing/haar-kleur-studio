@@ -243,7 +243,6 @@ def page_home():
     steps_html = "\n".join(f'<div class="step reveal"><span class="n">{["i.","ii.","iii."][i]}</span><h3>{t}</h3><p>{d}</p></div>' for i, (t, d) in enumerate(steps))
     reviews = (f'<a class="link-arrow" href="{CONFIG["google_profile"]}" rel="noopener">Lees de reviews op Google →</a>' if CONFIG["google_profile"]
                else '<div class="ph reveal"><strong>Google-reviews</strong><br>Zodra het Google Bedrijfsprofiel live is, komen hier de reviews van klanten en een link om er zelf een te schrijven.</div>')
-    map_src = f"https://www.google.com/maps?q={MAPS_Q}&output=embed"
     wa_contact = (f'<a href="{wa_url()}">Stuur een bericht</a>' if CONFIG["whatsapp"] else '<span>Nummer volgt</span>')
     return head("Haar Kleur Studio | Blond, balayage &amp; AirTouch in Eindhoven",
                 "Kapster en colorist in Eindhoven, gespecialiseerd in blond, balayage, AirTouch, highlights, grijsblending en kleurcorrecties. Persoonlijk advies en afspraak via WhatsApp.",
@@ -363,7 +362,15 @@ def page_home():
         <a class="btn btn-light" href="{wa_url()}">{ICON_WA}<span>Afspraak via WhatsApp</span></a>
       </div>
     </div>
-    <div class="map reveal"><iframe src="{map_src}" title="Kaart: Haar Kleur Studio in {CONFIG["city"]}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div class="visit reveal">
+      <img src="/images/werk/totaal-blond-na.jpg" alt="" width="960" height="1200" loading="lazy">
+      <div class="visit-card">
+        <p class="eyebrow">De studio</p>
+        <p class="visit-addr">{CONFIG["street"]}<br>{CONFIG["city"]}</p>
+        <p class="visit-note">Behandelingen op afspraak. Na het maken van je afspraak hoor je precies waar en wanneer je verwacht wordt.</p>
+        <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination={MAPS_Q}" rel="noopener">Plan je route</a>
+      </div>
+    </div>
   </div>
 </section>
 ''' + footer()
