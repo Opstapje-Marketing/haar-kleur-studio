@@ -54,6 +54,13 @@
           return;
         }
         var r = it.el.getBoundingClientRect();
+        if (sec) {
+          // Hero op mobiel: overgang start pas als je begint te scrollen
+          var hq = window.scrollY / Math.max(1, r.height * 1.05);
+          hq = Math.max(0, Math.min(1, hq)); hq = hq * hq * (3 - 2 * hq);
+          it.set(Math.round((1 - hq) * 1000) / 10);
+          return;
+        }
         if (r.bottom < 0 || r.top > vh) return;
         // 0 = net in beeld (voor), 1 = in het bovenste deel van het scherm (na)
         var p = (vh * 0.9 - r.top) / (vh * 0.55);

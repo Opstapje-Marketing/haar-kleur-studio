@@ -250,9 +250,11 @@ def page_home():
 <section class="hero-scroll" aria-label="Introductie">
   <div class="hero-pin">
     <div class="wrap hero-grid">
-      <div class="hero-copy">
+      <div class="hero-head">
         <p class="eyebrow">Kleurspecialist · {CONFIG["city"]}</p>
         <h1>Zacht, stralend <em>blond.</em></h1>
+      </div>
+      <div class="hero-copy">
         <p class="hero-lead">Persoonlijk advies en vakwerk in blond, balayage, AirTouch en kleurcorrecties. Voor vrouwen in {CONFIG["city"]} en omgeving.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="{wa_url()}">{ICON_WA}<span>Afspraak via WhatsApp</span></a>
@@ -289,6 +291,7 @@ def page_home():
     <div class="specs">
 {spec_html}
     </div>
+    <p class="swipe-hint">Swipe voor meer behandelingen →</p>
   </div>
 </section>
 
@@ -363,11 +366,25 @@ def page_home():
       </div>
     </div>
     <div class="visit reveal">
-      <img src="/images/werk/totaal-blond-na.jpg" alt="" width="960" height="1200" loading="lazy">
+      <svg class="visit-map" viewBox="0 0 600 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="600" height="520" fill="#F3E7E0"/>
+        <path d="M-20 120 C 120 90, 220 150, 360 110 S 560 60, 640 90" stroke="#E6D3C8" stroke-width="34" fill="none" stroke-linecap="round"/>
+        <g stroke="#FBF7F3" stroke-width="14" fill="none" stroke-linecap="round">
+          <path d="M-20 300 L 640 250"/><path d="M120 -20 L 170 560"/><path d="M420 -20 L 360 560"/>
+          <path d="M-20 430 C 150 410, 260 470, 640 420"/><path d="M260 -20 C 250 120, 300 260, 280 560"/>
+        </g>
+        <g stroke="#FBF7F3" stroke-width="6" fill="none" stroke-linecap="round" opacity=".9">
+          <path d="M-20 200 L 640 170"/><path d="M40 -20 L 80 560"/><path d="M520 -20 L 500 560"/><path d="M-20 360 L 640 340"/>
+        </g>
+        <circle cx="300" cy="245" r="70" fill="#9A5D4E" opacity=".10"/>
+        <circle cx="300" cy="245" r="36" fill="#9A5D4E" opacity=".16"/>
+        <path d="M300 268 C 300 268, 274 238, 274 222 a26 26 0 0 1 52 0 C 326 238, 300 268, 300 268 Z" fill="#2A211E"/>
+        <circle cx="300" cy="222" r="9" fill="#E9C9BB"/>
+      </svg>
       <div class="visit-card">
         <p class="eyebrow">De studio</p>
         <p class="visit-addr">{CONFIG["street"]}<br>{CONFIG["city"]}</p>
-        <p class="visit-note">Behandelingen op afspraak. Na het maken van je afspraak hoor je precies waar en wanneer je verwacht wordt.</p>
+        <p class="visit-note">Behandelingen op afspraak. Bij het maken van je afspraak hoor je precies hoe je de studio vindt.</p>
         <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination={MAPS_Q}" rel="noopener">Plan je route</a>
       </div>
     </div>
