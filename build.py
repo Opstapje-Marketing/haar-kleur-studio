@@ -247,31 +247,22 @@ def page_home():
     return head("Haar Kleur Studio | Blond, balayage &amp; AirTouch in Eindhoven",
                 "Kapster en colorist in Eindhoven, gespecialiseerd in blond, balayage, AirTouch, highlights, grijsblending en kleurcorrecties. Persoonlijk advies en afspraak via WhatsApp.",
                 "/") + header("home") + f'''
-<section class="hero-scroll" aria-label="Introductie">
-  <div class="hero-pin">
-    <div class="wrap hero-grid">
-      <div class="hero-head">
-        <p class="eyebrow">Kleurspecialist · {CONFIG["city"]}</p>
-        <h1>Zacht, stralend <em>blond.</em></h1>
+<section class="hero-tex" aria-label="Introductie">
+  <div class="wrap">
+    <div class="ht-top">
+      <p class="eyebrow">Haar Kleur Studio · {CONFIG["city"]}</p>
+      <p class="ht-since">Kapster &amp; colorist sinds 2018</p>
+    </div>
+    <h1 class="ht-title"><span class="ht-word">Blond</span><span class="ht-sub">met zorg gemaakt, in <em>{CONFIG["city"]}</em></span></h1>
+    <ul class="ht-palette" aria-label="Tinten in de letters">
+      <li><span style="background:#E8DCC6"></span>Platinum &amp; licht blond</li><li><span style="background:#C99A5E"></span>Goudblond</li><li><span style="background:#8E6B4E"></span>Beige &amp; brunette</li>
+    </ul>
+    <div class="ht-bottom">
+      <p class="ht-lead">Persoonlijk advies en vakwerk in blond, balayage, AirTouch en kleurcorrecties. De letters hierboven zijn gevuld met echt haar uit de studio.</p>
+      <div class="ht-cta">
+        <a class="btn btn-light" href="{wa_url()}">{ICON_WA}<span>Afspraak via WhatsApp</span></a>
+        <a class="link-arrow" href="/portfolio">Bekijk voor &amp; na →</a>
       </div>
-      <div class="hero-copy">
-        <p class="hero-lead">Persoonlijk advies en vakwerk in blond, balayage, AirTouch en kleurcorrecties. Voor vrouwen in {CONFIG["city"]} en omgeving.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="{wa_url()}">{ICON_WA}<span>Afspraak via WhatsApp</span></a>
-          <a class="link-arrow" href="/portfolio">Bekijk voor &amp; na →</a>
-        </div>
-        <dl class="hero-proof">
-          <div><dt>Sinds 2018</dt><dd>gediplomeerd kapster &amp; colorist</dd></div>
-          <div><dt>Blond</dt><dd>mijn specialisatie</dd></div>
-          <div><dt>Eerlijk</dt><dd>prijs altijd vooraf</dd></div>
-        </dl>
-      </div>
-      <figure class="hero-visual">
-        <div class="hero-arch">
-          <img src="/images/werk/blond-correctie-na.jpg" alt="Egaal, koel blond na een blondcorrectie bij Haar Kleur Studio" width="960" height="1200" fetchpriority="high">
-        </div>
-        <figcaption class="hero-cap"><span>Echt resultaat uit de studio</span><span>Blondcorrectie</span></figcaption>
-      </figure>
     </div>
   </div>
 </section>
